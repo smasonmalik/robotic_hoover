@@ -2,23 +2,19 @@
 
 var formatter = require('../src/handleInput');
 
+const directions = {N: 1, E: 1, S: -1, W: -1}
+
 class Hoover{
     constructor(inputData){
         this.location = formatter.strToCoordinates(inputData[1])
     }
 
-    move(direction){
-        if (direction === 'N') {
-            this.location[1] += 1
+    move(cardinal){
+        if (cardinal == 'N' || cardinal == 'S') {
+            this.location[1] += directions[cardinal]
         }
-        if (direction === 'S') {
-            this.location[1] -= 1
-        }
-        if (direction === 'E') {
-            this.location[0] += 1
-        }
-        if (direction === 'W') {
-            this.location[0] -= 1
+        if (cardinal == 'E' || cardinal == 'W') {
+            this.location[0] += directions[cardinal]
         }
     }
 }
