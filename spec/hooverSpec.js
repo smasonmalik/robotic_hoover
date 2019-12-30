@@ -17,9 +17,29 @@ describe('Vacuum', function(){
         })
     })
 
-    // describe('mooving hoover', function() {
-    //     it('changes hooverLocation given hoover movement direction', function(){
-    //         expect(hoover.move('N'))
-    //     }
-    // })
-})
+    describe('moving hover given a direction', function() {
+
+        beforeEach(function(){
+            hoover.location = [1,2]
+        })
+
+        it('moves north', function(){
+            hoover.move('N')
+            expect(hoover.location).toEqual([1,3])
+        })
+
+        it('moves south', function(){
+            hoover.move('S')
+            expect(hoover.location).toEqual([1,1])
+        })
+
+        it('moves east', function(){
+            hoover.move('E')
+            expect(hoover.location).toEqual([2,2])
+        })
+        it('moves west', function(){
+            hoover.move('W')
+            expect(hoover.location).toEqual([0,2])
+        })
+    })
+});
