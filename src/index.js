@@ -1,5 +1,5 @@
 'use strict';
 
-var formatter = require('./handleInput');
+var formatter = require('./formatter');
 
 formatter.readFile('input.txt');

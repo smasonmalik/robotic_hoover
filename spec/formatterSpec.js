@@ -1,6 +1,6 @@
 'use strict'
 
-var formatter = require('../src/handleInput');
+var formatter = require('../src/formatter');
 
 describe('reading input data', function() {
     it('returns room dimenions', function () {

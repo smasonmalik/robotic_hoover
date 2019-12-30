@@ -1,6 +1,6 @@
 'use strict'
 
-var formatter = require('../src/handleInput');
+var formatter = require('./formatter');
 
 class Room {
     constructor(inputData){
