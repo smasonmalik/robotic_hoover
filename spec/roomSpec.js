@@ -16,4 +16,13 @@ describe('Room', function() {
             expect(room.size).toEqual([5,5])
         })
     })
+
+    describe('room dirt patches', function() {
+        it('get dirt patches from inputData', function() { 
+            expect(room.getDirtPatches(inputData)).toEqual([[1,0],[2,2],[2,3]])
+        })
+        it('stores dirt patches as class variable', function(){
+            expect(room.dirtPatches).toEqual([[1,0],[2,2],[2,3]])
+        })
+    })
 })
