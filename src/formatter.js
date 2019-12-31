@@ -15,5 +15,6 @@ function strToCoordinates(string) {
     return string.split(' ').map(x => Number(x))
 }
 
+
 module.exports.readFile = readFile
 module.exports.strToCoordinates = strToCoordinates
