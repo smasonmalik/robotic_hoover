@@ -13,15 +13,11 @@ describe('Hoover', function(){
 
     describe('hoover position', function(){
         it('returns starting hoover position', function() {
-            expect(hoover.startLocation).toEqual([1,2])
+            expect(hoover.currentLocation).toEqual([1,2])
         })
     })
 
     describe('moving hoover given a direction', function() {
-
-        beforeEach(function(){
-            hoover.startLocation = [1,2]
-        })
 
         it('moves north', function(){
             hoover.move('N',[5,5])
@@ -69,8 +65,18 @@ describe('Hoover', function(){
     describe('hoover location history', function(){
         var roomDimensions = [5,5];
         it('stores all hoover positions', function(){
+            hoover.move('N', roomDimensions) 
+            hoover.move('N', roomDimensions)
+            hoover.move('E', roomDimensions)
             hoover.move('S', roomDimensions)
-            expect(hoover.locationHistory).toEqual([[1,2], [1,1]])
+            hoover.move('E', roomDimensions)
+            hoover.move('E', roomDimensions)
+            hoover.move('S', roomDimensions)
+            hoover.move('W', roomDimensions)
+            hoover.move('N', roomDimensions)
+            hoover.move('W', roomDimensions)
+            hoover.move('W', roomDimensions)
+            expect(hoover.locationHistory.pop()).toEqual([1,3])
 
         })
     })
