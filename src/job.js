@@ -9,22 +9,23 @@ class Job{
         this.room = new Room(this.data)
         this.hoover = new Hoover(this.data);
         this.instructions = this.data[this.data.length -1].split('')
-        this.patchesCleaned = 0;
-        this.history = []
     }
 
     finalLocation(){
         let self = this
         this.instructions.forEach(function(cardinal){
             self.hoover.move(cardinal, self.room.size)
-            
         })
-        console.log(this.history);
-        
-        return this.hoover.currentLocation
+        return this.hoover.locationHistory.pop()
     }
 
-    
-
+    patchesCleaned(){
+        var patchesCleaned = 0
+        let history = this.hoover.locationHistory.map(coord => coord.join(''))
+        this.room.dirtPatches.forEach(function(patch){
+            if (history.includes(patch.join(''))) patchesCleaned += 1 
+        })
+        return patchesCleaned
+    }
 }
 module.exports = Job;
