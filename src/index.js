@@ -1,5 +1,12 @@
 'use strict';
 
 var formatter = require('./formatter');
+var JobClass = require('./job');
 
-formatter.readFile('input.txt');
+const inputFile = 'input.txt'
+
+var inputData = formatter.fileReader(inputFile)
+
+var job = new JobClass(inputData)
+job.runJob()
+

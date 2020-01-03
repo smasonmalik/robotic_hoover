@@ -1,13 +1,14 @@
 'use strict'
 
-var Hoover = require('../src/hoover');
-var Room = require('../src/room');
+var Hoover = require('./hoover');
+var Room = require('./room');
+var output = require('./output');
 
 class Job{
     constructor(inputData){
         this.data = inputData
-        this.room = new Room(this.data)
-        this.hoover = new Hoover(this.data);
+        this.room = new Room(inputData)
+        this.hoover = new Hoover(inputData);
         this.instructions = this.data[this.data.length -1].split('')
     }
 
@@ -26,6 +27,12 @@ class Job{
             if (history.includes(patch.join(''))) patchesCleaned += 1 
         })
         return patchesCleaned
+    }
+
+    runJob(){
+        var location = this.finalLocation()
+        var patchesCleaned = this.patchesCleaned()
+        console.log(output.printOutput(location, patchesCleaned))
     }
 }
 module.exports = Job;

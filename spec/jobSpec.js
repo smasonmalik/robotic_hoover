@@ -9,6 +9,7 @@ describe('Job', function(){
 
     beforeEach(function(){
         job = new JobClass(inputData)
+        
     })
 
     describe('final hoover location', function(){
@@ -18,18 +19,9 @@ describe('Job', function(){
     })
     describe('keeping count of patches', function(){
         it('returns number of patches cleaned', function(){
-            job.hoover.move('N', [5,5]) 
-            job.hoover.move('N', [5,5])
-            job.hoover.move('E', [5,5])
-            job.hoover.move('S', [5,5])
-            job.hoover.move('E', [5,5])
-            job.hoover.move('E', [5,5])
-            job.hoover.move('S', [5,5])
-            job.hoover.move('W', [5,5])
-            job.hoover.move('N', [5,5])
-            job.hoover.move('W', [5,5])
-            job.hoover.move('W', [5,5])
+            job.finalLocation()
             expect(job.patchesCleaned()).toEqual(1)
         })
     })
+
 })
